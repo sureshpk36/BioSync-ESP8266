@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.medibot_ai">
+
+    <!-- Required permissions for Speech-to-Text and Text-to-Speech -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name=".MainApplication"
+        android:label="MediBot AI"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="true"
+        android:theme="@style/LaunchTheme">
+
+        <!-- Flutter-specific configuration -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+        <!-- Main activity to launch the application -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <!-- Intent filter to launch the app -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Foreground service permission -->
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+</manifest>
